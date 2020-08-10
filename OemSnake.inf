@@ -1,0 +1,50 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = OemSnake
+  FILE_GUID                      = 30433344-220e-4042-8923-2c44e65856d9
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = OemSnakeEntry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 EBC
+#
+
+[Sources]
+  OemSnake.c
+  OemSnake.h
+  Background.c
+  Background.h
+  CommonInit.c
+  CommonInit.h
+  Exit.c
+  Exit.h
+  KeyMap.c
+  KeyMap.h
+  Snake.c
+  Snake.h
+  ScreenLayer.c
+  ScreenLayer.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  CpuLib
+  IoLib
+  DebugLib
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid
+  gEfiRngProtocolGuid
+  gEfiSimpleTextInputExProtocolGuid
+  gEfiSimpleTextOutProtocolGuid
+
+[BuildOptions]
+  MSFT:*_*_X64_CC_FLAGS  = /FAcs
