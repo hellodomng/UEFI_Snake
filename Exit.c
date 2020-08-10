@@ -1,4 +1,5 @@
 #include "Exit.h"
+#include "KeyMap.h"
 
 extern EFI_HANDLE      GlobalKeyHandle;
 
@@ -7,7 +8,7 @@ extern OEM_SNAKE_END_LIST OemSnakeEndList[];
 
 EFI_STATUS
 EFIAPI
-onExit(EFI_KEY_DATA *KeyData)
+KeyExitCallback(EFI_KEY_DATA *KeyData)
 {
     EFI_STATUS Status = EFI_SUCCESS;
     UINT8           i = 0;
@@ -22,17 +23,6 @@ onExit(EFI_KEY_DATA *KeyData)
         }
     }
 
-    if(SimpleEx != NULL){
-        Status = SimpleEx->UnregisterKeyNotify (SimpleEx,GlobalKeyHandle);
-        if(EFI_ERROR(Status)){
-            DEBUG ((DEBUG_ERROR, "%a %d RegisterKeyNotify Status: %r \n", __FUNCTION__, __LINE__, Status));
-            // return Status;
-        }
-    }
-    else{
-        Print(L"SimpleEx == NULL\r\n");
-    }
-
     if(SimpleOut != NULL)
     {
         Status = SimpleOut->ClearScreen(SimpleOut);
@@ -43,5 +33,32 @@ onExit(EFI_KEY_DATA *KeyData)
     }
 
     gBS->Exit(gImageHandle, Status, 0, NULL);
+    return Status;
+}
+
+EFI_STATUS
+EFIAPI
+KepMapInit(VOID)
+{
+    EFI_STATUS Status = EFI_SUCCESS;
+    OEM_SNAKE_KEYMAP *Newkeymap = NULL;
+    Newkeymap = AllocateZeroPool (sizeof (OEM_SNAKE_KEYMAP_LIST));
+    
+    Newkeymap->KeyData = (EFI_KEY_DATA){{SCAN_ESC,0},{0,0}};
+    Newkeymap->Callback = KeyExitCallback;
+
+    KeyMapAddKeyMap(Newkeymap, 0);
+
+    return Status;
+}
+
+
+EFI_STATUS
+EFIAPI
+KepMapEnd(VOID)
+{
+    EFI_STATUS Status = EFI_SUCCESS;
+
+
     return Status;
 }

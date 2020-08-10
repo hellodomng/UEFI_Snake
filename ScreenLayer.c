@@ -205,8 +205,6 @@ ScreenLayerRender(VOID)
     return Status;
 }
 
-
-
 VOID
 EFIAPI
 LayerRenderTimerFunction(
@@ -268,7 +266,7 @@ ScreenLayerInit(VOID)
         return Status;
     }
 
-    Status = gBS->SignalEvent (LayerRenderEvent);
+    Status = gBS->SignalEvent(LayerRenderEvent);
     if(EFI_ERROR(Status))
     {
         Print(L"SignalEvent LayerRenderEvent: %r \r\n", Status);
@@ -282,7 +280,7 @@ EFI_STATUS
 EFIAPI
 ScreenLayerExit(VOID)
 {
-    EFI_STATUS Status = EFI_SUCCESS;
+    EFI_STATUS      Status = EFI_SUCCESS;
     OEM_SNAKE_LAYER *CurrentLayer   = NULL;
     OEM_SNAKE_LAYER *NextLayer   = NULL;
 

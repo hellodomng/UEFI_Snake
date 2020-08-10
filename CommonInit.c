@@ -24,7 +24,7 @@ CommonInit(VOID)
     }
 
     GraphicsInfo = GraphicsOutput->Mode->Info;
-    
+
     if(EFI_ERROR(Status))
     {
         Print(L"QueryMode Status: %r \r\n", Status);

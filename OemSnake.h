@@ -9,8 +9,4 @@
     typedef EFI_STATUS (EFIAPI *OEM_SNAKE_INIT_LIST) (VOID);
 
     typedef EFI_STATUS (EFIAPI *OEM_SNAKE_END_LIST) (VOID);
-
-
-
-
 #endif
