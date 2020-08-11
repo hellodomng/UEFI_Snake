@@ -38,7 +38,7 @@ KeyExitCallback(EFI_KEY_DATA *KeyData)
 
 EFI_STATUS
 EFIAPI
-KepMapInit(VOID)
+ExitInit(VOID)
 {
     EFI_STATUS Status = EFI_SUCCESS;
     OEM_SNAKE_KEYMAP *Newkeymap = NULL;
@@ -52,10 +52,9 @@ KepMapInit(VOID)
     return Status;
 }
 
-
 EFI_STATUS
 EFIAPI
-KepMapEnd(VOID)
+ExitEnd(VOID)
 {
     EFI_STATUS Status = EFI_SUCCESS;
 

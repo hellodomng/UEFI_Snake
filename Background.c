@@ -39,6 +39,8 @@ BreathBackground(
             BGColor[i]--;
         }
     }
+
+    //need optimized code
     for (UINT32 i = 0; i < BackgroundLayer->Height * BackgroundLayer->Width; i++)
     {
         *(UINT32 *)&BackgroundLayer->Buffer[i] = BackgroundColor;

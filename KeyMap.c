@@ -4,7 +4,7 @@
 EFI_HANDLE              KeyMapHandle = NULL;
 OEM_SNAKE_KEYMAP_LIST   *KeymapTop = NULL;
 OEM_SNAKE_KEYMAP_LIST   *KeymapBottom = NULL;
-static UINT32           KeymapId = 0;
+// static UINT32           KeymapId = 0;
 
 EFI_STATUS
 EFIAPI

@@ -10,6 +10,7 @@
     #include <Library/IoLib.h>
     #include <Library/DebugLib.h>
     #include <Protocol\Rng.h>
+    #include <Protocol\HiiFont.h>
 
     extern EFI_GRAPHICS_OUTPUT_PROTOCOL            *GraphicsOutput;
     extern EFI_GRAPHICS_OUTPUT_MODE_INFORMATION    *GraphicsInfo;

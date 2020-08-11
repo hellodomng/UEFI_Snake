@@ -18,13 +18,13 @@ struct _OEM_SNAKE_BODY{
     UINT32              Color;
     UINT32              Length;
     UINT32              Step;
-    OEM_SNAKE_POSITION *Position;
+    OEM_SNAKE_POSITION  *Position;
 };
 
-BOOLEAN                     SnakeFlag        = TRUE;
-EFI_EVENT                   SnakeMoveEvent   = NULL;
-UINT32                      SnakeSectionWidth       = 20;
-UINT32                      SnakeSectionHeight      = 20;
+BOOLEAN                 SnakeFlag               = TRUE;
+EFI_EVENT               SnakeMoveEvent          = NULL;
+UINT32                  SnakeSectionWidth       = 20;
+UINT32                  SnakeSectionHeight      = 20;
 
 enum SNAKE_DIRECTION{
     SnakeNorth,
@@ -40,8 +40,10 @@ SnakeMoveCallback(
     IN VOID         *Context
 )
 {
-    // EFI_STATUS      Status = EFI_SUCCESS
-
+    EFI_STATUS      Status = EFI_SUCCESS;
+    
+    
+    
     return;
 }
 
@@ -56,8 +58,8 @@ SnakeInit(VOID)
     //init position
     //init direction 0 = up 1 = down 2 = left 3 = right
     //init draw snake body
-
-
+    
+    
     //draw init snake
     ScreenLayerCreateLayer(
         200,200,

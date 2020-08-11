@@ -6,7 +6,7 @@
 #include "ScreenLayer.h"
 #include "OemSnake.h"
 
-OEM_SNAKE_INIT_LIST OemSnakeInitList[] = {CommonInit, ScreenLayerInit , BackgroundInit, KepMapInit ,SnakeInit, NULL};
+OEM_SNAKE_INIT_LIST OemSnakeInitList[] = {CommonInit, ScreenLayerInit , BackgroundInit, KepMapInit ,SnakeInit, ExitInit, NULL};
 OEM_SNAKE_END_LIST  OemSnakeEndList[]  = {SnakeEnd, BackgroundEnd, ScreenLayerExit, KepMapEnd, CommonEnd, NULL};
 
 EFI_STATUS

@@ -3,4 +3,16 @@
 
     #include "CommonInit.h"
 
+
+extern EFI_STATUS
+EFIAPI
+KeyExitCallback(EFI_KEY_DATA *KeyData);
+
+extern EFI_STATUS
+EFIAPI
+ExitInit(VOID);
+
+extern EFI_STATUS
+EFIAPI
+ExitEnd(VOID);
 #endif
